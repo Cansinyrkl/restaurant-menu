@@ -1,0 +1,10 @@
+.title-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 70px;
+    text-shadow: 6px 6px black;
+    font-family: cursive;
+    color: rgb(0, 255, 72)
+}
