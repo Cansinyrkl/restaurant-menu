@@ -1,4 +1,5 @@
-import { Row } from "./Index";
+import { Row } from "react-bootstrap";
+import "./Title.css";
 
 const Title = () => {
   return (
