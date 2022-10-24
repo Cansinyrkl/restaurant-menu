@@ -2,6 +2,7 @@ import "./Menu.css";
 import { useMenuList } from "../../hooks/MenuList";
 import { useState } from "react";
 import MenuReducer from "../../store/reducer/MenuReducer";
+import DeleteModal from "../delete/DeleteModal";
 
 const Menu = () => {
   const { menu, menuDispatch } = useMenuList();
@@ -10,7 +11,6 @@ const Menu = () => {
 
   const submitHandle = (e) => {
     e.preventDefault();
-    // menuDispatch([...menu, menuAdd]);
     menuDispatch({
       type: "SET_MENU",
       value: menuName,
@@ -24,8 +24,7 @@ const Menu = () => {
     <>
       <table id="customers">
         <tr>
-          <th>ürün</th>
-          <th>fiyat</th>
+          <th>ÜRÜNLER</th>
         </tr>
       </table>
       {menu?.map((item) => {
@@ -33,15 +32,17 @@ const Menu = () => {
           <table id="customers">
             <tr>
               <td>{item.name}</td>
-              <td>{item.price}</td>
+              <DeleteModal deleteId={item.id} />
             </tr>
           </table>
         );
       })}
+
       <form onSubmit={submitHandle} className="input">
-        <input type="text" onChange={onChange} maxLength="4" />
+        <input type="text" onChange={onChange} maxLength="16" />
         <button type="submit">Ekle</button>
       </form>
+
       <tr>
         {menu.map((menuAdd, index) => {
           <td key={index}>{menuAdd}</td>;

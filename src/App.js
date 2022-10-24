@@ -1,6 +1,6 @@
 import Menu from "./components/menu/Menu";
 import Title from "./components/title/Title";
-import MenuListContextProvider from "./store/contexts/MenuList"
+import MenuListContextProvider from "./store/contexts/MenuList";
 
 function App() {
   return (
@@ -9,9 +9,7 @@ function App() {
         <Title />
         <Menu />
       </MenuListContextProvider>
-
-
-    </div >
+    </div>
   );
 }
 
