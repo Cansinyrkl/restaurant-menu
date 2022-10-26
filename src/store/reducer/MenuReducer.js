@@ -4,12 +4,9 @@ const MenuReducer = (state, action) => {
   switch (action.type) {
     case "SET_MENU":
       return [...state, { id: uuid(), name: action.value, price: 100 }];
-    // case "ADD_MENU":
-    //   return {
-    //     ...state,
-    //     menuAdd: "",
-    //     menu: [...state.menu, action.menuAdd],
-    //   };
+
+    case "DELETE_MENU":
+      return [...state.filter((item) => item.id !== action.value)];
   }
 };
 
