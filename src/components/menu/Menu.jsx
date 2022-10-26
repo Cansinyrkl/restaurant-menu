@@ -7,6 +7,7 @@ const Menu = () => {
   const { menu, menuDispatch } = useMenuList();
   const [menuAdd, setMenuAdd] = useState("");
   const [menuName, setMenuName] = useState("");
+
   const submitHandle = (e) => {
     e.preventDefault();
     menuDispatch({
@@ -15,7 +16,9 @@ const Menu = () => {
     });
   };
   const onChange = (e) => {
-    setMenuName(e.target.value);
+    const value = e.target.value;
+    const upperCase = value.charAt(0).toUpperCase() + value.substr(1);
+    setMenuName(upperCase);
   };
   return (
     <>
@@ -26,7 +29,11 @@ const Menu = () => {
             <tr>
               <td>
                 {item.name}
-                <DeleteModal deleteId={item.id} className="productitem" />
+                <DeleteModal
+                  deleteId={item.id}
+                  productHeader={item.name}
+                  className="productitem"
+                />
               </td>
             </tr>
           </table>
@@ -39,6 +46,7 @@ const Menu = () => {
           maxLength="16"
           placeholder="Ürünü buraya giriniz"
           className="input"
+          value={menuName}
         />
         <button className="button" type="submit">
           Ekle

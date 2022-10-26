@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useMenuList } from "../../hooks/MenuListHooks";
 
-function DeleteModal({ deleteId }) {
+function DeleteModal({ deleteId, productHeader }) {
   const [show, setShow] = useState(false);
   const { menuDispatch } = useMenuList();
   const handleDelete = () => {
@@ -24,9 +24,12 @@ function DeleteModal({ deleteId }) {
 
       <Modal show={show}>
         <Modal.Header>
-          <Modal.Title>Ürün</Modal.Title>
+          <Modal.Title>{productHeader}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Bu içeriği silmek istediğinizden eminmisiniz?</Modal.Body>
+        <Modal.Body>
+          <b> {productHeader}</b> isimli yemeği silmek istediğinizden
+          eminmisiniz?
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Çık

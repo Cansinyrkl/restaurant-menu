@@ -50,6 +50,12 @@
   width: 18%;
   border-radius: 10px;
   box-shadow: 6px 4px 10px 0px;
+  padding: 4px 8px;
+  outline: none;
+  transition: color 0.3s;
+}
+.input:focus {
+  color: rgba(0, 0, 0, 0.618);
 }
 ::placeholder {
   text-align: center;
