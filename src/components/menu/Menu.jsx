@@ -1,7 +1,6 @@
 import "./Menu.css";
 import { useMenuList } from "../../hooks/MenuList";
 import { useState } from "react";
-import MenuReducer from "../../store/reducer/MenuReducer";
 import DeleteModal from "../delete/DeleteModal";
 
 const Menu = () => {
@@ -22,17 +21,18 @@ const Menu = () => {
 
   return (
     <>
-      <table id="customers">
+      <table className="customers">
         <tr>
           <th>ÜRÜNLER</th>
         </tr>
       </table>
       {menu?.map((item) => {
         return (
-          <table id="customers">
+          <table className="customers">
             <tr>
               <td>{item.name}</td>
-              <DeleteModal deleteId={item.id} />
+              <td>{item.fiyat}</td>
+              <DeleteModal deleteId={item.id} className="productitem" />
             </tr>
           </table>
         );
