@@ -2,6 +2,7 @@ import "./Menu.css";
 import { useMenuList } from "../../hooks/MenuListHooks";
 import { useState } from "react";
 import DeleteModal from "../delete/DeleteModal";
+import Arrangement from "../arrangement/Arrangement";
 
 const Menu = () => {
   const { menu, menuDispatch } = useMenuList();
@@ -27,13 +28,10 @@ const Menu = () => {
         return (
           <table className="customers" key={item.id}>
             <tr>
-              <td>
+              <td className="productitem">
                 {item.name}
-                <DeleteModal
-                  deleteId={item.id}
-                  productHeader={item.name}
-                  className="productitem"
-                />
+                <DeleteModal deleteId={item.id} productHeader={item.name} />
+                <Arrangement productHeader={item.name} deleteId={item.id} />
               </td>
             </tr>
           </table>
