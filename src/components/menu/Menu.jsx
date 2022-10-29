@@ -28,10 +28,20 @@ const Menu = () => {
         return (
           <table className="customers" key={item.id}>
             <tr>
-              <td className="productitem">
-                {item.name}
-                <DeleteModal deleteId={item.id} productHeader={item.name} />
-                <Arrangement productHeader={item.name} deleteId={item.id} />
+              <td>
+                <div>{item.name}</div>
+                <div className="props">
+                  <DeleteModal
+                    deleteId={item.id}
+                    productHeader={item.name}
+                    className="deleteModalClass"
+                  />
+                  <Arrangement
+                    productHeader={item.name}
+                    deleteId={item.id}
+                    className="arrangementClass"
+                  />
+                </div>
               </td>
             </tr>
           </table>

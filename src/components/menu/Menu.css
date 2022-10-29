@@ -12,12 +12,17 @@
   font-size: 18px;
   font-family: cursive;
   display: flex;
-  justify-content: baseline;
   align-items: center;
-  justify-content: space-between;
+  justify-content: start;
   border: 2px solid rgb(215, 215, 215);
   padding: 8px;
   width: 600px;
+}
+.customers .props {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 750px;
 }
 
 .customers tr:hover {

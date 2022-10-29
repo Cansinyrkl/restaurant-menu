@@ -4,11 +4,16 @@ import { faPenSquare } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
+import { useMenuList } from "../../hooks/MenuListHooks";
 
 function Arrangement({ productHeader, deleteId }) {
   const [show, setShow] = useState(false);
+  const { menuDispatch } = useMenuList();
+  const handleEdit = () => {
+    setShow(false);
+    menuDispatch({ type: "EDİT_MENU", value: deleteId });
+  };
 
-  console.log(deleteId);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -41,7 +46,7 @@ function Arrangement({ productHeader, deleteId }) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleEdit}>
             Save Changes
           </Button>
         </Modal.Footer>

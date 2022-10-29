@@ -7,6 +7,9 @@ const MenuReducer = (state, action) => {
 
     case "DELETE_MENU":
       return [...state.filter((item) => item.id !== action.value)];
+
+    case "EDİT_MENU":
+      return [...state.filter((item) => item.id === action.value)];
   }
 };
 
