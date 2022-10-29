@@ -9,7 +9,12 @@ const MenuReducer = (state, action) => {
       return [...state.filter((item) => item.id !== action.value)];
 
     case "EDİT_MENU":
-      return [...state.filter((item) => item.id === action.value)];
+      state.filter((food) => {
+        if (food.id === action.selectedId) {
+          return (food.name = action.newName);
+        }
+      });
+      return [...state];
   }
 };
 

@@ -6,12 +6,18 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import { useMenuList } from "../../hooks/MenuListHooks";
 
-function Arrangement({ productHeader, deleteId }) {
+function Arrangement({ productHeader, selectedId }) {
   const [show, setShow] = useState(false);
+  const [changeName, setChangeName] = useState(null);
+
   const { menuDispatch } = useMenuList();
   const handleEdit = () => {
     setShow(false);
-    menuDispatch({ type: "EDİT_MENU", value: deleteId });
+    menuDispatch({
+      type: "EDİT_MENU",
+      selectedId: selectedId,
+      newName: changeName,
+    });
   };
 
   const handleClose = () => setShow(false);
@@ -31,15 +37,12 @@ function Arrangement({ productHeader, deleteId }) {
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Control
-                type="email"
+                type="text"
                 placeholder="Yeni Değeri Giriniz."
                 autoFocus
+                onChange={(e) => setChangeName(e.target.value)}
               />
             </Form.Group>
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            ></Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
