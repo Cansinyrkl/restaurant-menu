@@ -21,7 +21,7 @@ const Menu = () => {
     const upperCase = value.charAt(0).toUpperCase() + value.substr(1);
     setMenuName(upperCase);
   };
-  console.log("menu: ", menu);
+
   return (
     <>
       <h3 className="menu-header">ÜRÜNLER</h3>
