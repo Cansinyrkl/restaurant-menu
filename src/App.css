@@ -1,0 +1,17 @@
+body {
+  font-family: "Ubuntu", sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  font-weight: var(--font-weight);
+  transition: background 0.3s ease-in-out, color 0.6s ease-in-out;
+}
+
+body.light {
+  background-color: rgb(255, 255, 255);
+  background-color: rgb(26, 57, 87);
+}
+
+body.dark {
+  background-color: rgb(26, 57, 87);
+  background-color: rgb(255, 255, 255);
+}

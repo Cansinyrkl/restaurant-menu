@@ -4,10 +4,13 @@ import { Route, Routes } from "react-router-dom";
 import UserContextProvider from "./store/contexts/useUserContext";
 import Menu from "./components/menu/Menu";
 import Login from "./components/login/Login";
+import DarkMode from "./components/darkmode/DarkMode";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
+      <DarkMode />
       <UserContextProvider>
         <MenuListContextProvider>
           <Title />

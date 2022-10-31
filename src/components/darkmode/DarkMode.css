@@ -1,0 +1,19 @@
+#darkMode {
+  background-size: 30px 30px;
+  display: inline-block;
+  width: 70px;
+  border-radius: 15%;
+  transition: background-color 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+#darkMode:hover,
+#darkMode:focus {
+  filter: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+#darkMode.clicked {
+  filter: none !important;
+  background-color: white;
+}

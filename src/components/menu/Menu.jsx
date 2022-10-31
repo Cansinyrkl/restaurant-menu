@@ -28,24 +28,22 @@ const Menu = () => {
       {menu?.map((item) => {
         return (
           <table className="customers" key={item.id}>
-            <tr>
-              <td>
-                <div>{item.img}</div>
-                <div>{item.name}</div>
-                <div className="props">
-                  <DeleteModal
-                    deleteId={item.id}
-                    productHeader={item.name}
-                    className="deleteModalClass"
-                  />
-                  <Arrangement
-                    productHeader={item.name}
-                    selectedId={item.id}
-                    className="arrangementClass"
-                  />
-                </div>
-              </td>
-            </tr>
+            <td>
+              <div>{item.img}</div>
+              <div>{item.name}</div>
+              <div className="props">
+                <DeleteModal
+                  deleteId={item.id}
+                  productHeader={item.name}
+                  className="deleteModalClass"
+                />
+                <Arrangement
+                  productHeader={item.name}
+                  selectedId={item.id}
+                  className="arrangementClass"
+                />
+              </div>
+            </td>
           </table>
         );
       })}
