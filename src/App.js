@@ -1,8 +1,9 @@
 import Title from "./components/title/Title";
 import MenuListContextProvider from "./store/contexts/useMenuList";
 import { Route, Routes } from "react-router-dom";
-import UserContextProvider from "./components/login/Login";
+import UserContextProvider from "./store/contexts/useUserContext";
 import Menu from "./components/menu/Menu";
+import Login from "./components/login/Login";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <MenuListContextProvider>
           <Title />
           <Routes>
+            <Route path="/" element={<Login />} />
             <Route path="/menu" element={<Menu />} />
           </Routes>
         </MenuListContextProvider>

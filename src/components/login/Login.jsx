@@ -8,6 +8,7 @@ const Login = () => {
     { id: uuid(), name: "admin", password: "123", admin: true },
     { id: uuid(), name: "user", password: "123", admin: false },
   ]);
+
   const [userNameHolder, setUserNameHolder] = useState();
   const [passwordHolder, setPasswordHolder] = useState();
 
@@ -40,7 +41,7 @@ const Login = () => {
   return (
     <div className="page">
       <div className="cover">
-        <h1>Login</h1>
+        <h1>Class Burger Giriş</h1>
         <form className="form-container">
           <input
             type="text"
