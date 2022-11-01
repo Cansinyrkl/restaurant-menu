@@ -6,13 +6,15 @@ import Menu from "./components/menu/Menu";
 import Login from "./components/login/Login";
 import DarkMode from "./components/darkmode/DarkMode";
 import "./App.css";
+import Logout from "./components/logout/Logout";
 
 function App() {
   return (
     <div className="App">
-      <DarkMode />
       <UserContextProvider>
         <MenuListContextProvider>
+          <DarkMode />
+          <Logout />
           <Title />
           <Routes>
             <Route path="/" element={<Login />} />

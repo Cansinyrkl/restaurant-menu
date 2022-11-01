@@ -6,11 +6,11 @@ export const MenuListContext = createContext();
 
 const MenuListContextProvider = ({ children }) => {
   const initialState = [
-    { id: uuid(), name: "Patates yemeği" },
-    { id: uuid(), name: "Soğan yemeği" },
-    { id: uuid(), name: "Sosili" },
-    { id: uuid(), name: "Mercimek" },
-    { id: uuid(), name: "Fırınlanmış poğça" },
+    { id: uuid(), userId: 1, name: "Patates yemeği" },
+    { id: uuid(), userId: 1, name: "Soğan yemeği" },
+    { id: uuid(), userId: 2, name: "Sosili" },
+    { id: uuid(), userId: 2, name: "Mercimek" },
+    { id: uuid(), userId: 2, name: "Fırınlanmış poğça" },
   ];
   const [menu, menuDispatch] = useReducer(MenuReducer, initialState);
   return (

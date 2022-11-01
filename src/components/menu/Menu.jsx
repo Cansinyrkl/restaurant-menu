@@ -1,11 +1,13 @@
 import "./Menu.css";
 import { useMenuList } from "../../hooks/MenuListHooks";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import DeleteModal from "../delete/DeleteModal";
+import { UserListContext } from "../../store/contexts/useUserContext";
 import Arrangement from "../arrangement/Arrangement";
 
 const Menu = () => {
   const { menu, menuDispatch } = useMenuList();
+  const { users } = useContext(UserListContext);
   const [menuAdd, setMenuAdd] = useState("");
   const [menuName, setMenuName] = useState("");
 
@@ -22,6 +24,22 @@ const Menu = () => {
     setMenuName(upperCase);
   };
 
+  const checkId = users.map((user) => {
+    return user.id;
+  });
+
+  const menuMap = menu.map((menuFind) => {
+    return menuFind.userId;
+  });
+
+  const idSame = checkId === menuMap;
+
+  if (idSame) {
+    return sessionStorage.getItem("userInfo", checkId);
+  }
+
+  console.log(idSame);
+
   return (
     <>
       <h3 className="menu-header">ÜRÜNLER</h3>
@@ -29,7 +47,6 @@ const Menu = () => {
         return (
           <table className="customers" key={item.id}>
             <td>
-              <div>{item.img}</div>
               <div>{item.name}</div>
               <div className="props">
                 <DeleteModal
@@ -60,11 +77,9 @@ const Menu = () => {
           Ekle
         </button>
       </form>
-      <tr>
-        {menu.map((menuAdd, index) => {
-          <td key={index}>{menuAdd}</td>;
-        })}
-      </tr>
+      {menu.map((menuAdd, index) => {
+        <td key={index}>{menuAdd}</td>;
+      })}
     </>
   );
 };

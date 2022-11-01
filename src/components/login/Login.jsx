@@ -1,8 +1,8 @@
 import "./Login.css";
-import uuid from "react-uuid";
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserListContext } from "../../store/contexts/useUserContext";
+import Popup from "../popup/Popup";
 
 const Login = () => {
   const { users } = useContext(UserListContext);
@@ -25,13 +25,14 @@ const Login = () => {
     const checkUser = users.find((user) => {
       return userNameHolder === user.name && passwordHolder === user.password;
     });
-
     if (checkUser) {
       navigate("/menu");
+      sessionStorage.setItem("userInfo", checkUser.id);
     } else {
-      alert("yanlışgirdin");
+      alert("yanlıs girdin");
     }
   };
+
   return (
     <div className="page">
       <div className="cover">
