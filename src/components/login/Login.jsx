@@ -1,13 +1,11 @@
 import "./Login.css";
 import uuid from "react-uuid";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserListContext } from "../../store/contexts/useUserContext";
 
 const Login = () => {
-  const [userdatas] = useState([
-    { id: uuid(), name: "admin", password: "123", admin: true },
-    { id: uuid(), name: "user", password: "123", admin: false },
-  ]);
+  const { users } = useContext(UserListContext);
 
   const [userNameHolder, setUserNameHolder] = useState();
   const [passwordHolder, setPasswordHolder] = useState();
@@ -24,18 +22,14 @@ const Login = () => {
   };
 
   const btnClick = () => {
-    const checkUser = userdatas.find((user) => {
+    const checkUser = users.find((user) => {
       return userNameHolder === user.name && passwordHolder === user.password;
     });
 
     if (checkUser) {
-      if (checkUser.admin === true) {
-        navigate("/menu");
-      } else {
-        navigate("/menu");
-      }
+      navigate("/menu");
     } else {
-      alert("Yanlış Giriş Yaptınız");
+      alert("yanlışgirdin");
     }
   };
   return (
