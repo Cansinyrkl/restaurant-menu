@@ -1,57 +1,72 @@
 import React, { useContext } from "react";
-import { useFormik } from "formik";
+import { Formik } from "formik";
 import { useNavigate } from "react-router-dom";
 import { UserListContext } from "../../store/contexts/useUserContext";
 import "./Login.css";
-import * as yup from "yup";
 
-const Logged = () => {
+const Login = () => {
   const navigate = useNavigate();
   const { users } = useContext(UserListContext);
-  const { handleSubmit, handleChange, values } = useFormik({
-    initialValues: {
-      username: "",
-      password: "",
-    },
-  });
-  const btnClick = () => {
-    const checkUser = users.find((user) => {
-      return values.username === user.name && values.password === user.password;
-    });
-    if (checkUser) {
-      navigate("/menu");
-      sessionStorage.setItem("userInfo", checkUser.id);
-    }
-  };
-  const schema = yup.object().shape({
-    username: yup.string().required("kullanıcı adı boş bırakılamaz"),
-    password: yup.string().required("Şifre  boş bırakılamaz"),
-  });
 
   return (
-    <div className="Container">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">kullanıcı</label>
-        <input
-          type="text"
-          id="username"
-          value={values.username}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="password">şifre</label>
-        <input
-          type="password"
-          id="password"
-          value={values.password}
-          onChange={handleChange}
-        />
-        <button type="submit" className="btnClick" onClick={btnClick}>
-          giriş yap
-        </button>
-      </form>
+    <div>
+      <h1>CLASS BURGER</h1>
+      <Formik
+        initialValues={{ username: "", password: "" }}
+        validate={(values) => {
+          const errors = {};
+          if (!values.username) {
+            errors.username = "username boş bırakılamaz";
+          } else if (
+            /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.username)
+          ) {
+            errors.username = "Invalid username ";
+          }
+          return errors;
+        }}
+        onSubmit={(values) => {
+          const checkUser = users.find((user) => {
+            return (
+              values.username === user.name && values.password === user.password
+            );
+          });
+          if (checkUser) {
+            navigate("/menu");
+            sessionStorage.setItem("userInfo", checkUser.id);
+          }
+        }}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+        }) => (
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="username"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.username}
+            />
+            {errors.username && touched.username && errors.username}
+            <input
+              type="password"
+              name="password"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.password}
+            />
+            {errors.password && touched.password && errors.password}
+            <button type="submit">Submit</button>
+          </form>
+        )}
+      </Formik>
     </div>
   );
 };
 
-export default Logged;
+export default Login;
