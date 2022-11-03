@@ -1,3 +1,13 @@
-.btnClick {
+.submit-button {
+  border-radius: 10px;
+}
+.userinput {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+.passwordinput {
+  display: flex;
+  align-items: center;
   border-radius: 10px;
 }

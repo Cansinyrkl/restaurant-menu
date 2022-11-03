@@ -20,7 +20,7 @@ const Login = () => {
           } else if (
             /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.username)
           ) {
-            errors.username = "Invalid username ";
+            errors.username = "geçersiz username ";
           }
           return errors;
         }}
@@ -32,7 +32,7 @@ const Login = () => {
           });
           if (checkUser) {
             navigate("/menu");
-            sessionStorage.setItem("userInfo", checkUser.id);
+            sessionStorage.setItem("userInfo", JSON.stringify(checkUser.id));
           }
         }}
       >
@@ -46,6 +46,7 @@ const Login = () => {
         }) => (
           <form onSubmit={handleSubmit}>
             <input
+              className="userinput"
               type="text"
               name="username"
               onChange={handleChange}
@@ -54,6 +55,7 @@ const Login = () => {
             />
             {errors.username && touched.username && errors.username}
             <input
+              className="passwordinput"
               type="password"
               name="password"
               onChange={handleChange}
@@ -61,7 +63,9 @@ const Login = () => {
               value={values.password}
             />
             {errors.password && touched.password && errors.password}
-            <button type="submit">Submit</button>
+            <button className="submit-button" type="submit">
+              Submit
+            </button>
           </form>
         )}
       </Formik>

@@ -2,8 +2,8 @@ import "./Menu.css";
 import { useMenuList } from "../../hooks/MenuListHooks";
 import { useState, useContext } from "react";
 import DeleteModal from "../delete/DeleteModal";
-import { UserListContext } from "../../store/contexts/useUserContext";
 import Arrangement from "../arrangement/Arrangement";
+import { UserListContext } from "../../store/contexts/useUserContext";
 
 const Menu = () => {
   const { menu, menuDispatch } = useMenuList();
@@ -23,31 +23,21 @@ const Menu = () => {
     const upperCase = value.charAt(0).toUpperCase() + value.substr(1);
     setMenuName(upperCase);
   };
+  const sessionId = sessionStorage.getItem("userInfo");
 
-  const checkId = users.map((user) => {
-    return user.id;
+  const usersObject = users.map((usersObject) => {
+    return usersObject.id;
   });
-
-  const menuMap = menu.map((menuFind) => {
-    return menuFind.userId;
-  });
-
-  const idSame = checkId === menuMap;
-
-  if (idSame) {
-    return sessionStorage.getItem("userInfo", checkId);
-  }
-
-  console.log(idSame);
+  console.log(usersObject);
 
   return (
     <>
       <h3 className="menu-header">ÜRÜNLER</h3>
-      {menu?.map((item) => {
+      {menu.map((item) => {
         return (
           <table className="customers" key={item.id}>
             <td>
-              <div>{item.name}</div>
+              {item.name}
               <div className="props">
                 <DeleteModal
                   deleteId={item.id}
