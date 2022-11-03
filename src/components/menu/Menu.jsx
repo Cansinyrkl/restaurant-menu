@@ -25,34 +25,31 @@ const Menu = () => {
   };
   const sessionId = sessionStorage.getItem("userInfo");
 
-  const usersObject = users.map((usersObject) => {
-    return usersObject.id;
-  });
-  console.log(usersObject);
-
   return (
     <>
       <h3 className="menu-header">ÜRÜNLER</h3>
       {menu.map((item) => {
-        return (
-          <table className="customers" key={item.id}>
-            <td>
-              {item.name}
-              <div className="props">
-                <DeleteModal
-                  deleteId={item.id}
-                  productHeader={item.name}
-                  className="deleteModalClass"
-                />
-                <Arrangement
-                  productHeader={item.name}
-                  selectedId={item.id}
-                  className="arrangementClass"
-                />
-              </div>
-            </td>
-          </table>
-        );
+        if (sessionId == item.userId) {
+          return (
+            <table className="customers" key={item.id}>
+              <td>
+                {item.name}
+                <div className="props">
+                  <DeleteModal
+                    deleteId={item.id}
+                    productHeader={item.name}
+                    className="deleteModalClass"
+                  />
+                  <Arrangement
+                    productHeader={item.name}
+                    selectedId={item.id}
+                    className="arrangementClass"
+                  />
+                </div>
+              </td>
+            </table>
+          );
+        }
       })}
       <form onSubmit={submitHandle} className="form">
         <input

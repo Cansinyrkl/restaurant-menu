@@ -17,6 +17,9 @@ const Login = () => {
           const errors = {};
           if (!values.username) {
             errors.username = "username boş bırakılamaz";
+          }
+          if (!values.password) {
+            errors.password = "password boş bırakılamaz";
           } else if (
             /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.username)
           ) {
