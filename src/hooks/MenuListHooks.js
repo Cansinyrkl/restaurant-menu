@@ -6,5 +6,5 @@ export const useMenuList = () => {
   const menu = menuList.menu;
   const menuDispatch = menuList.menuDispatch;
 
-  return { menu, menuDispatch };
+  return { menu, menuDispatch, menuList };
 };

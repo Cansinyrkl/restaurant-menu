@@ -4,31 +4,41 @@ import { useState, useContext } from "react";
 import DeleteModal from "../delete/DeleteModal";
 import Arrangement from "../arrangement/Arrangement";
 import { UserListContext } from "../../store/contexts/useUserContext";
+import { getSession } from "../../utils/Sessions";
+import { useEffect } from "react";
 
 const Menu = () => {
-  const { menu, menuDispatch } = useMenuList();
+  const { menu, menuDispatch, menuList } = useMenuList();
+  const loginUser = getSession();
   const { users } = useContext(UserListContext);
   const [menuAdd, setMenuAdd] = useState("");
   const [menuName, setMenuName] = useState("");
+  const sessionId = sessionStorage.getItem("userInfo");
+  const userFilter = users.find((userFilter) => {
+    return userFilter;
+  });
 
   const submitHandle = (e) => {
     e.preventDefault();
     menuDispatch({
       type: "SET_MENU",
+      userId: sessionId,
       value: menuName,
     });
   };
+  // useEffect(() => {
+  //   menuList.menuDispatch({
+  //     type: "FILTER_USER",
+  //     loginUser,
+  //     admin: userFilter.admin,
+  //   });
+  // });
+
   const onChange = (e) => {
     const value = e.target.value;
     const upperCase = value.charAt(0).toUpperCase() + value.substr(1);
     setMenuName(upperCase);
   };
-
-  const userFilter = users.find((userFilter) => {
-    return userFilter.admin;
-  });
-  const sessionId = sessionStorage.getItem("userInfo");
-  const sessionAdmin = sessionStorage.getItem("userAdmin");
 
   return (
     <>
