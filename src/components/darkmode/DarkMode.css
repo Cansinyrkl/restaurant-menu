@@ -6,14 +6,30 @@
   transition: background-color 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
-#darkMode:hover,
-#darkMode:focus {
-  filter: none;
-  background-color: white;
-  cursor: pointer;
+#DarkModeBtn {
+  background: #ff78eb;
+  background-image: -webkit-linear-gradient(top, #ff78eb, #ffffff);
+  background-image: -moz-linear-gradient(top, #ff78eb, #ffffff);
+  background-image: -ms-linear-gradient(top, #ff78eb, #ffffff);
+  background-image: -o-linear-gradient(top, #ff78eb, #ffffff);
+  background-image: linear-gradient(to bottom, #ff78eb, #ffffff);
+  -webkit-border-radius: 17;
+  -moz-border-radius: 17;
+  border-radius: 17px;
+  font-family: cursive;
+  color: #471247;
+  font-size: 14px;
+  padding: 10px 20px 10px 20px;
+  border: solid #000000 1px;
+  text-decoration: none;
+  margin-top: 10px;
 }
-
-#darkMode.clicked {
-  filter: none !important;
-  background-color: white;
+#DarkModeBtn:hover {
+  background: #ff78e0;
+  background-image: -webkit-linear-gradient(top, #ff78e0, #ff94ea);
+  background-image: -moz-linear-gradient(top, #ff78e0, #ff94ea);
+  background-image: -ms-linear-gradient(top, #ff78e0, #ff94ea);
+  background-image: -o-linear-gradient(top, #ff78e0, #ff94ea);
+  background-image: linear-gradient(to bottom, #ff78e0, #ff94ea);
+  text-decoration: none;
 }

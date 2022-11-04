@@ -9,7 +9,7 @@ const Login = () => {
   const { users } = useContext(UserListContext);
 
   return (
-    <div>
+    <div className="formContainer">
       <Formik
         initialValues={{ username: "", password: "" }}
         validate={(values) => {
@@ -45,29 +45,34 @@ const Login = () => {
           handleBlur,
           handleSubmit,
         }) => (
-          <form onSubmit={handleSubmit} className="form">
-            <input
-              className="username"
-              type="text"
-              name="username"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.username}
-            />
-            {errors.username && touched.username && errors.username}
-            <input
-              className="password"
-              type="password"
-              name="password"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.password}
-            />
-            {errors.password && touched.password && errors.password}
-            <button className="button" type="submit">
-              Submit
-            </button>
-          </form>
+          <div>
+            <div className="loginheader">Class Giriş</div>
+            <form onSubmit={handleSubmit} className="form">
+              <div className="userNameHeader">UserName</div>
+              <input
+                className="username"
+                type="text"
+                name="username"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.username}
+              />
+              {errors.username && touched.username && errors.username}
+              <div className="passwordHeader">Password</div>
+              <input
+                className="password"
+                type="password"
+                name="password"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.password}
+              />
+              {errors.password && touched.password && errors.password}
+              <button className="loginBtn" type="submit">
+                Submit
+              </button>
+            </form>
+          </div>
         )}
       </Formik>
     </div>

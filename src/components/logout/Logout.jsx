@@ -20,8 +20,8 @@ const Logout = () => {
 
   return (
     <button
-      id="LogoutShow"
-      className="LogoutShow"
+      id="LogoutBtn"
+      className="LogoutBtn"
       type="submit"
       onClick={btnLogout}
     >

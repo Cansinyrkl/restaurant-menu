@@ -9,14 +9,17 @@
 }
 
 .customers td {
-  font-size: 18px;
+  font-size: 20px;
   font-family: cursive;
   display: flex;
   align-items: center;
   justify-content: start;
-  border: 2px solid rgb(215, 215, 215);
   padding: 8px;
-  width: 600px;
+  background-color: rgb(249, 165, 165);
+  width: 500px;
+  border-radius: 10px;
+  margin-top: 6px;
+  border: 1px solid rgb(249, 214, 251);
 }
 .customers .props {
   display: flex;
@@ -54,12 +57,46 @@
   text-align: center;
 }
 
-.button {
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-  border-radius: 12px;
-  font-size: 20px;
-  width: 100px;
-  margin-top: 16px;
-  box-shadow: 6px 4px 10px 0px;
+.menuAddInput {
+  margin-top: 14px;
+  padding: 6px;
+  font-size: 16px;
+  border-width: 1px;
+  border-color: #b7bce8;
+  background-color: #fdf9f9;
+  color: #000000;
+  border-style: solid;
+  border-radius: 10px;
+  box-shadow: 11px 4px 5px rgba(4, 4, 4, 0.84);
+  text-shadow: 5px 0px 9px rgba(66, 66, 66, 0.1);
+}
+.menuAddInput:focus {
+  outline: none;
+}
+.menuAddBtn {
+  background: #ff78eb;
+  background-image: -webkit-linear-gradient(top, #ff78eb, #ffffff);
+  background-image: -moz-linear-gradient(top, #ff78eb, #ffffff);
+  background-image: -ms-linear-gradient(top, #ff78eb, #ffffff);
+  background-image: -o-linear-gradient(top, #ff78eb, #ffffff);
+  background-image: linear-gradient(to bottom, #ff78eb, #ffffff);
+  -webkit-border-radius: 17;
+  -moz-border-radius: 17;
+  border-radius: 17px;
+  font-family: cursive;
+  color: #471247;
+  font-size: 14px;
+  padding: 10px 20px 10px 20px;
+  border: solid #000000 1px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+.menuAddBtn:hover {
+  background: #ff78e0;
+  background-image: -webkit-linear-gradient(top, #ff78e0, #ff94ea);
+  background-image: -moz-linear-gradient(top, #ff78e0, #ff94ea);
+  background-image: -ms-linear-gradient(top, #ff78e0, #ff94ea);
+  background-image: -o-linear-gradient(top, #ff78e0, #ff94ea);
+  background-image: linear-gradient(to bottom, #ff78e0, #ff94ea);
+  text-decoration: none;
 }

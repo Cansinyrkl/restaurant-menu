@@ -8,10 +8,10 @@ body {
 
 body.light {
   background-color: rgb(255, 255, 255);
-  background-color: rgb(26, 57, 87);
+  background-color: rgb(249, 214, 251);
 }
 
 body.dark {
-  background-color: rgb(26, 57, 87);
+  background-color: rgb(249, 214, 251);
   background-color: rgb(255, 255, 255);
 }

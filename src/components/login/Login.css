@@ -5,16 +5,44 @@ body {
   height: 100vh;
 }
 
+.formContainer {
+  -webkit-box-shadow: 0px 0px 68px 0px rgba(250, 135, 250, 1);
+  -moz-box-shadow: 0px 0px 68px 0px rgba(250, 135, 250, 1);
+  box-shadow: 0px 0px 68px 0px rgba(250, 135, 250, 1);
+  padding: 40px;
+  border-radius: 99px 31px 99px 29px;
+  -webkit-border-radius: 99px 31px 99px 29px;
+  -moz-border-radius: 99px 31px 99px 29px;
+}
+.form {
+  padding: 40px;
+}
+.loginheader {
+  display: flex;
+  justify-content: center;
+  font-family: cursive;
+  font-size: 32px;
+  color: #030303;
+  text-shadow: 1px 1px rgba(250, 135, 250, 1);
+}
+
+.userNameHeader {
+  font-family: cursive;
+  margin: 10px;
+  color: rgb(56, 56, 56);
+  text-shadow: 1px 1px rgba(250, 135, 250, 1);
+  color: rgb(254, 159, 159);
+}
+
 .username {
   background: white;
-  box-shadow: 0 0 2em #e6e9f9ac;
+  box-shadow: 0 0 2em #e6e9f9;
   font-size: 18px;
   padding: 1em;
   display: flex;
   gap: 0.5em;
   border-radius: 20px;
-  color: #000000;
-  margin-top: 2em;
+  color: #030303;
   height: 1em;
 }
 
@@ -27,14 +55,44 @@ body {
   gap: 0.5em;
   border-radius: 20px;
   color: #030303;
-  margin-top: 2em;
   height: 1em;
 }
 .password input {
   outline: none;
   border: none;
 }
+.passwordHeader {
+  font-family: cursive;
+  margin: 10px;
+  color: rgb(56, 56, 56);
+  text-shadow: 1px 1px rgba(250, 135, 250, 1);
+  color: rgb(254, 159, 159);
+}
+.loginBtn {
+  background: #ff78eb;
+  background-image: -webkit-linear-gradient(top, #ff78eb, #ffffff);
+  background-image: -moz-linear-gradient(top, #ff78eb, #ffffff);
+  background-image: -ms-linear-gradient(top, #ff78eb, #ffffff);
+  background-image: -o-linear-gradient(top, #ff78eb, #ffffff);
+  background-image: linear-gradient(to bottom, #ff78eb, #ffffff);
+  -webkit-border-radius: 17;
+  -moz-border-radius: 17;
+  border-radius: 17px;
+  font-family: cursive;
+  color: #471247;
+  font-size: 14px;
+  padding: 10px 20px 10px 20px;
+  border: solid #000000 1px;
+  text-decoration: none;
+  margin-top: 10px;
+}
 
-button {
-  cursor: pointer;
+.loginBtn:hover {
+  background: #ff78e0;
+  background-image: -webkit-linear-gradient(top, #ff78e0, #ff94ea);
+  background-image: -moz-linear-gradient(top, #ff78e0, #ff94ea);
+  background-image: -ms-linear-gradient(top, #ff78e0, #ff94ea);
+  background-image: -o-linear-gradient(top, #ff78e0, #ff94ea);
+  background-image: linear-gradient(to bottom, #ff78e0, #ff94ea);
+  text-decoration: none;
 }

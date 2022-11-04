@@ -5,43 +5,39 @@ import DeleteModal from "../delete/DeleteModal";
 import Arrangement from "../arrangement/Arrangement";
 import { UserListContext } from "../../store/contexts/useUserContext";
 import { getSession } from "../../utils/Sessions";
-import { useEffect } from "react";
+import Logout from "../logout/Logout";
 
 const Menu = () => {
   const { menu, menuDispatch, menuList } = useMenuList();
   const loginUser = getSession();
   const { users } = useContext(UserListContext);
   const [menuAdd, setMenuAdd] = useState("");
-  const [menuName, setMenuName] = useState("");
   const sessionId = sessionStorage.getItem("userInfo");
   const userFilter = users.find((userFilter) => {
     return userFilter;
   });
 
+  console.log(loginUser);
+
   const submitHandle = (e) => {
     e.preventDefault();
     menuDispatch({
-      type: "SET_MENU",
-      userId: sessionId,
-      value: menuName,
+      type: "ADD_MENU",
+      userId: loginUser,
+      text: menuAdd,
     });
   };
-  // useEffect(() => {
-  //   menuList.menuDispatch({
-  //     type: "FILTER_USER",
-  //     loginUser,
-  //     admin: userFilter.admin,
-  //   });
-  // });
+  console.log();
 
   const onChange = (e) => {
     const value = e.target.value;
     const upperCase = value.charAt(0).toUpperCase() + value.substr(1);
-    setMenuName(upperCase);
+    setMenuAdd(upperCase);
   };
 
   return (
     <>
+      <Logout className="Logout" />
       {menu.map(({ id, name, userId }) => {
         if (sessionId == userId) {
           return (
@@ -71,11 +67,11 @@ const Menu = () => {
           onChange={onChange}
           maxLength="16"
           placeholder="Ürünü buraya giriniz"
-          className="input"
-          value={menuName}
+          className="menuAddInput"
+          value={menuAdd}
         />
-        <button className="button" type="submit">
-          Ekle
+        <button className="menuAddBtn" type="submit">
+          Add
         </button>
       </form>
       {menu.map((menuAdd, index) => {

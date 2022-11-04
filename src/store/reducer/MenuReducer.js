@@ -2,8 +2,11 @@ import uuid from "react-uuid";
 
 const MenuReducer = (state, action) => {
   switch (action.type) {
-    case "SET_MENU":
-      return [...state, { id: uuid(), name: action.value }];
+    case "ADD_MENU":
+      return [
+        ...state,
+        { id: uuid(), userId: action.userId, text: action.text },
+      ];
 
     case "DELETE_MENU":
       return [...state.filter((item) => item.id !== action.value)];
