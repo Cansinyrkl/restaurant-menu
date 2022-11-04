@@ -23,26 +23,30 @@ const Menu = () => {
     const upperCase = value.charAt(0).toUpperCase() + value.substr(1);
     setMenuName(upperCase);
   };
+
+  const userFilter = users.find((userFilter) => {
+    return userFilter.admin;
+  });
   const sessionId = sessionStorage.getItem("userInfo");
+  const sessionAdmin = sessionStorage.getItem("userAdmin");
 
   return (
     <>
-      <h3 className="menu-header">ÜRÜNLER</h3>
-      {menu.map((item) => {
-        if (sessionId == item.userId) {
+      {menu.map(({ id, name, userId }) => {
+        if (sessionId == userId) {
           return (
-            <table className="customers" key={item.id}>
+            <table className="customers" key={id}>
               <td>
-                {item.name}
+                {name}
                 <div className="props">
                   <DeleteModal
-                    deleteId={item.id}
-                    productHeader={item.name}
+                    deleteId={id}
+                    productHeader={name}
                     className="deleteModalClass"
                   />
                   <Arrangement
-                    productHeader={item.name}
-                    selectedId={item.id}
+                    productHeader={name}
+                    selectedId={id}
                     className="arrangementClass"
                   />
                 </div>

@@ -1,13 +1,40 @@
-.submit-button {
-  border-radius: 10px;
-}
-.userinput {
+body {
   display: flex;
+  justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  height: 100vh;
 }
-.passwordinput {
+
+.username {
+  background: white;
+  box-shadow: 0 0 2em #e6e9f9ac;
+  font-size: 18px;
+  padding: 1em;
   display: flex;
-  align-items: center;
-  border-radius: 10px;
+  gap: 0.5em;
+  border-radius: 20px;
+  color: #000000;
+  margin-top: 2em;
+  height: 1em;
+}
+
+.password {
+  background: white;
+  box-shadow: 0 0 2em #e6e9f9;
+  font-size: 18px;
+  padding: 1em;
+  display: flex;
+  gap: 0.5em;
+  border-radius: 20px;
+  color: #030303;
+  margin-top: 2em;
+  height: 1em;
+}
+.password input {
+  outline: none;
+  border: none;
+}
+
+button {
+  cursor: pointer;
 }

@@ -10,7 +10,6 @@ const Login = () => {
 
   return (
     <div>
-      <h1>CLASS BURGER</h1>
       <Formik
         initialValues={{ username: "", password: "" }}
         validate={(values) => {
@@ -28,11 +27,10 @@ const Login = () => {
           return errors;
         }}
         onSubmit={(values) => {
-          const checkUser = users.find((user) => {
-            return (
+          const checkUser = users.find(
+            (user) =>
               values.username === user.name && values.password === user.password
-            );
-          });
+          );
           if (checkUser) {
             navigate("/menu");
             sessionStorage.setItem("userInfo", JSON.stringify(checkUser.id));
@@ -47,9 +45,9 @@ const Login = () => {
           handleBlur,
           handleSubmit,
         }) => (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="form">
             <input
-              className="userinput"
+              className="username"
               type="text"
               name="username"
               onChange={handleChange}
@@ -58,7 +56,7 @@ const Login = () => {
             />
             {errors.username && touched.username && errors.username}
             <input
-              className="passwordinput"
+              className="password"
               type="password"
               name="password"
               onChange={handleChange}
@@ -66,7 +64,7 @@ const Login = () => {
               value={values.password}
             />
             {errors.password && touched.password && errors.password}
-            <button className="submit-button" type="submit">
+            <button className="button" type="submit">
               Submit
             </button>
           </form>

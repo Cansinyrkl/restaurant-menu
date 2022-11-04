@@ -4,8 +4,8 @@ export const UserListContext = createContext();
 
 const UserListContextProvider = ({ children }) => {
   const [users, usersDispatch] = useState([
-    { id: 1, name: "admin", password: "123", admin: true },
-    { id: 2, name: "user", password: "123", admin: false },
+    { id: 1, admin: true, name: "admin", password: "123" },
+    { id: 2, admin: false, name: "user", password: "123" },
   ]);
 
   return (
