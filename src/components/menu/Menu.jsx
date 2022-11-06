@@ -1,23 +1,22 @@
-import "./Menu.css";
-import { useMenuList } from "../../hooks/MenuListHooks";
-import { useState, useContext } from "react";
-import DeleteModal from "../delete/DeleteModal";
-import Arrangement from "../arrangement/Arrangement";
-import { UserListContext } from "../../store/contexts/useUserContext";
-import { getSession } from "../../utils/Sessions";
-import Logout from "../logout/Logout";
+import {
+  React,
+  Logout,
+  useState,
+  getSession,
+  DeleteModal,
+  Arrangement,
+  useMenuList,
+  useUserContext,
+  getUserFromSession,
+} from "./Index";
 
 const Menu = () => {
-  const { menu, menuDispatch, menuList } = useMenuList();
-  const loginUser = getSession();
-  const { users } = useContext(UserListContext);
   const [menuAdd, setMenuAdd] = useState("");
+  const { menu, menuDispatch } = useMenuList();
+  const { userList, user } = useUserContext();
   const sessionId = sessionStorage.getItem("userInfo");
-  const userFilter = users.find((userFilter) => {
-    return userFilter;
-  });
-
-  console.log(loginUser);
+  const loginUser = getSession();
+  const loggedInUser = getUserFromSession(userList.users, loginUser);
 
   const submitHandle = (e) => {
     e.preventDefault();
@@ -27,8 +26,6 @@ const Menu = () => {
       text: menuAdd,
     });
   };
-  console.log();
-
   const onChange = (e) => {
     const value = e.target.value;
     const upperCase = value.charAt(0).toUpperCase() + value.substr(1);
@@ -39,7 +36,7 @@ const Menu = () => {
     <>
       <Logout className="Logout" />
       {menu.map(({ id, name, userId }) => {
-        if (sessionId == userId) {
+        if (Number(sessionId) === userId || loggedInUser.admin === true) {
           return (
             <table className="customers" key={id}>
               <td>
@@ -74,9 +71,6 @@ const Menu = () => {
           Add
         </button>
       </form>
-      {menu.map((menuAdd, index) => {
-        <td key={index}>{menuAdd}</td>;
-      })}
     </>
   );
 };

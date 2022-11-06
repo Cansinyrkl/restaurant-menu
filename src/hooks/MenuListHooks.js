@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { MenuListContext } from "../store/contexts/useMenuList";
+import { useContext, MenuListContext } from "./Index";
 
 export const useMenuList = () => {
   const menuList = useContext(MenuListContext);

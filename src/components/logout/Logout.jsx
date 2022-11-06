@@ -1,8 +1,4 @@
-import React from "react";
-import "./Logout.css";
-import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { UserListContext } from "../../store/contexts/useUserContext";
+import { React, useContext, useNavigate, UserListContext } from "./Index";
 
 const Logout = () => {
   const { users } = useContext(UserListContext);

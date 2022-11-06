@@ -1,10 +1,13 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenSquare } from "@fortawesome/free-solid-svg-icons";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
-import { useMenuList } from "../../hooks/MenuListHooks";
+import {
+  Form,
+  Modal,
+  React,
+  Button,
+  useState,
+  useMenuList,
+  faPenSquare,
+  FontAwesomeIcon,
+} from "./Index";
 
 function Arrangement({ productHeader, selectedId }) {
   const [show, setShow] = useState(false);

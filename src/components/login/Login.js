@@ -1,8 +1,10 @@
-import "./Login.css";
-import { Formik } from "formik";
-import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { UserListContext } from "../../store/contexts/useUserContext";
+import {
+  React,
+  Formik,
+  useContext,
+  useNavigate,
+  UserListContext,
+} from "./Index";
 
 const Login = () => {
   const navigate = useNavigate();

@@ -5,9 +5,8 @@ const MenuReducer = (state, action) => {
     case "ADD_MENU":
       return [
         ...state,
-        { id: uuid(), userId: action.userId, text: action.text },
+        { id: uuid(), userId: action.userId, name: action.text },
       ];
-
     case "DELETE_MENU":
       return [...state.filter((item) => item.id !== action.value)];
 
