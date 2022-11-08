@@ -8,12 +8,19 @@ import {
   useMenuList,
   useUserContext,
   getUserFromSession,
+  TdInside,
+  MenuProductTd,
+  Container,
+  GeneralButton,
+  LoginInput,
+  FormContainer,
+  Forms,
 } from "./Index";
 
 const Menu = () => {
   const [menuAdd, setMenuAdd] = useState("");
   const { menu, menuDispatch } = useMenuList();
-  const { userList, user } = useUserContext();
+  const { userList } = useUserContext();
   const sessionId = sessionStorage.getItem("userInfo");
   const loginUser = getSession();
   const loggedInUser = getUserFromSession(userList.users, loginUser);
@@ -33,15 +40,15 @@ const Menu = () => {
   };
 
   return (
-    <>
-      <Logout className="Logout" />
-      {menu.map(({ id, name, userId }) => {
-        if (Number(sessionId) === userId || loggedInUser.admin === true) {
-          return (
-            <table className="customers" key={id}>
-              <td>
+    <Container>
+      <FormContainer>
+        <Logout className="Logout" />
+        {menu.map(({ id, name, userId }) => {
+          if (Number(sessionId) === userId || loggedInUser.admin === true) {
+            return (
+              <MenuProductTd>
                 {name}
-                <div className="props">
+                <TdInside className="props">
                   <DeleteModal
                     deleteId={id}
                     productHeader={name}
@@ -52,26 +59,27 @@ const Menu = () => {
                     selectedId={id}
                     className="arrangementClass"
                   />
-                </div>
-              </td>
-            </table>
-          );
-        }
-      })}
-      <form onSubmit={submitHandle} className="form">
-        <input
-          type="text"
-          onChange={onChange}
-          maxLength="16"
-          placeholder="Ürünü buraya giriniz"
-          className="menuAddInput"
-          value={menuAdd}
-        />
-        <button className="menuAddBtn" type="submit">
-          Add
-        </button>
-      </form>
-    </>
+                </TdInside>
+              </MenuProductTd>
+            );
+          }
+          return null;
+        })}
+        <Forms onSubmit={submitHandle}>
+          <LoginInput
+            type="text"
+            onChange={onChange}
+            maxLength="16"
+            placeholder="Ürünü buraya giriniz"
+            className="menuAddInput"
+            value={menuAdd}
+          />
+          <GeneralButton className="menuAddBtn" type="submit">
+            Add
+          </GeneralButton>
+        </Forms>
+      </FormContainer>
+    </Container>
   );
 };
 

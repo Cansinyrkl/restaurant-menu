@@ -1,7 +1,7 @@
-import "./Title.css";
+import { MainHeader } from "../styledComponents/StyledComponents";
 
 const Title = () => {
-  return <h1 className="title-menu display-4">CLASS</h1>;
+  return <MainHeader className="title-menu display-4">CLASS</MainHeader>;
 };
 
 export default Title;

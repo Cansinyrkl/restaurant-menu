@@ -1,8 +1,14 @@
 import {
   React,
   Formik,
+  Container,
+  LoginForms,
+  LoginInput,
   useContext,
+  LoginHeader,
   useNavigate,
+  GeneralButton,
+  FormContainer,
   UserListContext,
 } from "./Index";
 
@@ -11,7 +17,7 @@ const Login = () => {
   const { users } = useContext(UserListContext);
 
   return (
-    <div className="formContainer">
+    <Container>
       <Formik
         initialValues={{ username: "", password: "" }}
         validate={(values) => {
@@ -30,8 +36,8 @@ const Login = () => {
         }}
         onSubmit={(values) => {
           const checkUser = users.find(
-            (user) =>
-              values.username === user.name && values.password === user.password
+            ({ name, password }) =>
+              values.username === name && values.password === password
           );
           if (checkUser) {
             navigate("/menu");
@@ -47,11 +53,10 @@ const Login = () => {
           handleBlur,
           handleSubmit,
         }) => (
-          <div>
-            <div className="loginheader">Class Giriş</div>
-            <form onSubmit={handleSubmit} className="form">
-              <div className="userNameHeader">UserName</div>
-              <input
+          <FormContainer>
+            <LoginForms onSubmit={handleSubmit}>
+              <LoginHeader>UserName</LoginHeader>
+              <LoginInput
                 className="username"
                 type="text"
                 name="username"
@@ -60,8 +65,8 @@ const Login = () => {
                 value={values.username}
               />
               {errors.username && touched.username && errors.username}
-              <div className="passwordHeader">Password</div>
-              <input
+              <LoginHeader>Password</LoginHeader>
+              <LoginInput
                 className="password"
                 type="password"
                 name="password"
@@ -70,14 +75,12 @@ const Login = () => {
                 value={values.password}
               />
               {errors.password && touched.password && errors.password}
-              <button className="loginBtn" type="submit">
-                Submit
-              </button>
-            </form>
-          </div>
+              <GeneralButton type="submit">Submit</GeneralButton>
+            </LoginForms>
+          </FormContainer>
         )}
       </Formik>
-    </div>
+    </Container>
   );
 };
 

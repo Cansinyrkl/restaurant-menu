@@ -1,4 +1,10 @@
-import { React, useContext, useNavigate, UserListContext } from "./Index";
+import {
+  React,
+  useContext,
+  useNavigate,
+  GeneralButton,
+  UserListContext,
+} from "./Index";
 
 const Logout = () => {
   const { users } = useContext(UserListContext);
@@ -15,14 +21,14 @@ const Logout = () => {
   };
 
   return (
-    <button
+    <GeneralButton
       id="LogoutBtn"
       className="LogoutBtn"
       type="submit"
       onClick={btnLogout}
     >
       Logout
-    </button>
+    </GeneralButton>
   );
 };
 
