@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 export const Container = styled.body`
   display: flex;
   justify-content: center;
@@ -7,7 +6,6 @@ export const Container = styled.body`
   flex-direction: column;
   height: 85vh;
 `;
-
 export const GeneralButton = styled.button`
   background: #0099ff;
   background-image: -webkit-linear-gradient(top, #0099ff, #1b3545);
@@ -28,13 +26,15 @@ export const GeneralButton = styled.button`
   border: solid #0f0f0f 1px;
   text-decoration: none;
   margin-top: 12px;
-`;
 
+  &:hover {
+    color: red;
+  }
+`;
 export const LoginHeader = styled.header`
   font-family: cursive;
   margin: 30px;
 `;
-
 export const LoginInput = styled.input`
 background: white;
 box-shadow: 0 0 2em #e6e9f9;
@@ -44,13 +44,11 @@ display: flex;
 border-radius: 20px;
 color #000000;
 `;
-
 export const FormContainer = styled.header`
   -webkit-box-shadow: 0px 0px 68px 0px rgb(57, 44, 57);
   padding: 20px;
   border-radius: 20px;
 `;
-
 export const MenuProductTd = styled.td`
   font-size: 20px;
   font-family: cursive;
@@ -64,14 +62,12 @@ export const MenuProductTd = styled.td`
   margin-top: 6px;
   border: 1px solid rgb(249, 214, 251);
 `;
-
 export const TdInside = styled.td`
   display: flex;
   align-items: center;
   justify-content: end;
   width: 750px;
 `;
-
 export const MainHeader = styled.header`
   display: flex;
   justify-content: center;
@@ -82,7 +78,6 @@ export const MainHeader = styled.header`
   color: rgb(0, 101, 179);
   font-family: cursive;
 `;
-
 export const Forms = styled.form`
   display: flex;
   align-items: center;
